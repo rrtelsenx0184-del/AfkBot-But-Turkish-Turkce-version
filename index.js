@@ -1,3 +1,9 @@
+// Eğer Render ortamındaysak ve IP tanımlıysa soru sorma, direkt başlat
+if (process.env.IP) {
+    console.log("Render ortamı algılandı, ayarlar değişkenlerden alınıyor...");
+    startBot({ ip: process.env.IP, name: process.env.NAME || "AFK_Botu", version: process.env.VERSION || false });
+    return; // Fonksiyonu burada bitir, soru sorma kısmına geçme
+}
 const mineflayer = require('mineflayer');
 const fs = require('fs');
 const readline = require('readline');
